@@ -8,18 +8,17 @@ import time
 import csv
 import os
 
-# ------------------------------
 # CSV Logging Setup
-# ------------------------------
+
 csv_file = "emotion_log.csv"
 if not os.path.exists(csv_file):
     with open(csv_file, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["timestamp", "person_id", "emotion"])  # headers
 
-# ------------------------------
+
 # Initialize Webcam & Detector
-# ------------------------------
+
 cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 detector = MTCNN()
 
@@ -35,9 +34,9 @@ face_positions = {}  # {person_id: (x_center, y_center)}
 # Distance threshold to match faces to existing IDs
 MATCH_THRESHOLD = 50
 
-# ------------------------------
+
 # Helper Function: Find closest face ID
-# ------------------------------
+
 def get_person_id(x, y):
     global next_person_id, face_positions
     for pid, (px, py) in face_positions.items():
@@ -48,9 +47,9 @@ def get_person_id(x, y):
     next_person_id += 1
     return pid
 
-# ------------------------------
+
 # Main Loop
-# ------------------------------
+
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -116,9 +115,9 @@ while True:
     # Update face positions for next frame
     face_positions = current_face_positions
 
-    # ------------------------------
-    # Display crowd analytics
-    # ------------------------------
+   
+    
+    
     # Percentage of each emotion across all faces
     all_emotions = [max(set(emotion_history[pid]), key=emotion_history[pid].count)
                     for pid in emotion_history if len(emotion_history[pid]) > 0]
