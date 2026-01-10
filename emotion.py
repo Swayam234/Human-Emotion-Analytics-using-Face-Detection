@@ -1,4 +1,3 @@
-# Real-Time Emotion Detection using DeepFace and OpenCV
 # Multi-Face Real-Time Emotion Detection with CSV Logging
 import cv2
 from deepface import DeepFace
@@ -9,7 +8,6 @@ import csv
 import os
 
 # CSV Logging Setup
-
 csv_file = "emotion_log.csv"
 if not os.path.exists(csv_file):
     with open(csv_file, "w", newline="") as f:
@@ -18,7 +16,6 @@ if not os.path.exists(csv_file):
 
 
 # Initialize Webcam & Detector
-
 cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 detector = MTCNN()
 
@@ -36,7 +33,6 @@ MATCH_THRESHOLD = 50
 
 
 # Helper Function: Find closest face ID
-
 def get_person_id(x, y):
     global next_person_id, face_positions
     for pid, (px, py) in face_positions.items():
@@ -49,7 +45,6 @@ def get_person_id(x, y):
 
 
 # Main Loop
-
 while True:
     ret, frame = cap.read()
     if not ret:
