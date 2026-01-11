@@ -9,7 +9,7 @@ st.title(" Emotion Detection Analytics")
 CSV_FILE = "emotion_log.csv"
 
 
-# Load data 
+# Load data
 if not os.path.exists(CSV_FILE):
     st.warning("No emotion data found. Run emotion.py first.")
     st.stop()
