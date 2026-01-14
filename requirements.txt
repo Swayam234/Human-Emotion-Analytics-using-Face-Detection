@@ -1,4 +1,4 @@
-# Requirments for the project
+# Requirements for the project
 streamlit>=1.30
 pandas>=1.5
 matplotlib>=3.7
